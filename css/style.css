@@ -108,6 +108,17 @@ body:not(.is-loading) .hero__name .ch > span { transform: none; }
 body:not(.is-loading) .hero__portrait img { transform: none; }
 
 .hero__name .word { will-change: transform; }
+.hero__glow { position: absolute; left: 50%; top: 58%; z-index: 0; width: min(95vmin, 900px); aspect-ratio: 1; margin: calc(min(95vmin, 900px) / -2) 0 0 calc(min(95vmin, 900px) / -2); pointer-events: none; transition: opacity 1.6s var(--ease) .8s; }
+.is-loading .hero__glow { opacity: 0; }
+.hero__glow i { position: absolute; inset: 0; border-radius: 50%; will-change: transform;
+  background: radial-gradient(circle, rgba(63,191,107,.42) 0%, rgba(63,191,107,.18) 35%, rgba(63,191,107,0) 68%);
+  animation: glow 18s ease-in-out infinite alternate; }
+@keyframes glow {
+  0%   { transform: translate(-14%, 4%) scale(.92); }
+  35%  { transform: translate(10%, -8%) scale(1.08); }
+  70%  { transform: translate(16%, 8%) scale(.98); }
+  100% { transform: translate(-8%, -4%) scale(1.12); }
+}
 .hero__marquee { position: absolute; left: 0; right: 0; top: 60svh; z-index: 1; overflow: hidden; white-space: nowrap; pointer-events: none; transition: opacity 1.2s var(--ease) 1.4s; }
 .is-loading .hero__marquee { opacity: 0; }
 .hero__marquee div { display: inline-flex; animation: marquee 48s linear infinite; will-change: transform; }

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samiul Alam</title>
+<meta name="description" content="Samiul Alam, plant stress physiologist. Research on salinity, arsenic toxicity and plant growth-promoting bacteria in rice.">
+<meta property="og:title" content="Samiul Alam">
+<meta property="og:description" content="Plant stress physiologist. Salinity, arsenic and plant growth-promoting bacteria in rice.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e1e1e'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='28' text-anchor='middle' fill='%23f6f6f4'%3ESA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+<a class="skip" href="#about">Skip to content</a>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<div class="page" id="page">
+
+  <header class="topbar" id="topbar">
+    <span class="pill pill--status"><i class="dot"></i><span data-bind="status"></span></span>
+    <nav class="nav" aria-label="Sections">
+      <a href="#research">Research <sup data-count="research"></sup></a>
+      <a href="#publications">Publications <sup data-count="publications"></sup></a>
+      <a href="#experience">Experience <sup data-count="experience"></sup></a>
+      <a href="#recognition">Recognition</a>
+    </nav>
+    <a class="pill pill--dark" href="#contact">Contact <span class="arrow" aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <h1 class="hero__name" id="heroName" aria-label="Samiul Alam"></h1>
+      <div class="hero__portrait" id="heroPortrait"><img id="portraitImg" alt="Portrait of Samiul Alam" width="900" height="1352"></div>
+      <div class="hero__foot">
+        <p class="hero__role"><span data-bind="role"></span></p>
+        <p class="hero__tag" data-bind="tagline"></p>
+      </div>
+      <a class="hero__cue" href="#about" aria-label="Scroll to about"><span></span></a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="heading"><span class="ghost" aria-hidden="true">About</span><h2>/About</h2></div>
+      <div class="about">
+        <div class="about__text" id="aboutText"></div>
+        <div class="about__side">
+          <div class="edu" id="education"></div>
+          <a class="pill pill--dark reveal" id="cvButton" hidden>Download CV <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section" id="research">
+      <div class="heading"><span class="ghost" aria-hidden="true">Research</span><h2>/Research</h2></div>
+      <div class="rows" id="researchRows"></div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="section" id="publications">
+      <div class="heading"><span class="ghost" aria-hidden="true">Publications</span><h2>/Publications</h2></div>
+      <div class="filters" id="filters" role="tablist" aria-label="Publication type"></div>
+      <div class="pubs" id="pubRows"></div>
+    </section>
+
+    <!-- EXPERIENCE (dark panel) -->
+    <section class="section section--dark" id="experience">
+      <div class="dark-inner">
+        <div class="heading"><span class="ghost" aria-hidden="true">Experience</span><h2>/Experience</h2></div>
+        <div class="xp" id="xpRows"></div>
+      </div>
+    </section>
+
+    <!-- RECOGNITION -->
+    <section class="section" id="recognition">
+      <div class="heading"><span class="ghost" aria-hidden="true">Recognition</span><h2>/Recognition</h2></div>
+      <div class="two">
+        <div><h3 class="sub">Honors and awards</h3><div class="list" id="awards"></div></div>
+        <div><h3 class="sub">Conference presentations</h3><div class="list" id="conferences"></div></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="heading"><span class="ghost" aria-hidden="true">Skills</span><h2>/Skills</h2></div>
+      <div class="skills" id="skillGroups"></div>
+    </section>
+
+    <!-- GALLERY (hidden until photos are added in data/content.js) -->
+    <section class="section" id="gallery" hidden>
+      <div class="heading"><span class="ghost" aria-hidden="true">Beyond the lab</span><h2>/Beyond the lab</h2></div>
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+  </main>
+</div>
+
+<!-- CONTACT, revealed like a curtain -->
+<footer class="contact" id="contact">
+  <span class="pill pill--status"><i class="dot"></i><span data-bind="status"></span></span>
+  <h2 class="contact__title" data-bind="contact.heading"></h2>
+  <p class="contact__text" data-bind="contact.text"></p>
+  <a class="pill pill--dark pill--lg" id="emailButton">Email me <span class="arrow" aria-hidden="true">↗</span></a>
+  <p class="contact__email" id="emailText"></p>
+  <div class="contact__links" id="contactLinks"></div>
+  <p class="contact__copy">© <span id="year"></span> Samiul Alam</p>
+</footer>
+
+<!-- PUBLICATION DETAIL -->
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
+  <div class="detail__inner">
+    <button class="pill" id="detailBack" type="button"><span aria-hidden="true">←</span> Back</button>
+    <p class="detail__type" id="detailType"></p>
+    <h2 class="detail__title" id="detailTitle"></h2>
+    <dl class="detail__meta">
+      <div><dt>Authors</dt><dd id="detailAuthors"></dd></div>
+      <div><dt>Published in</dt><dd id="detailVenue"></dd></div>
+      <div><dt>Year</dt><dd id="detailYear"></dd></div>
+    </dl>
+    <a class="pill pill--dark pill--lg" id="detailDoi" target="_blank" rel="noopener">Read the paper <span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<script src="data/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -31,6 +31,24 @@
   nameEl.appendChild(word(D.name.last, "solid", D.name.first.length));
   $("#portraitImg").src = D.portrait;
 
+  var mq = $("#heroMarquee");
+  if (mq && (D.research || []).length) {
+    var words = D.research.map(function (r) { return "<span>" + r.title + "</span>"; }).join("");
+    mq.innerHTML = "<div>" + words + words + words + words + "</div>";
+  }
+  var roles = (D.roles && D.roles.length ? D.roles : [D.role]), roleEl = $("#roleText"), roleI = 0;
+  roleEl.textContent = roles[0];
+  if (roles.length > 1 && !reduce) {
+    setInterval(function () {
+      roleEl.classList.add("out");
+      setTimeout(function () {
+        roleI = (roleI + 1) % roles.length; roleEl.textContent = roles[roleI];
+        roleEl.style.transition = "none"; roleEl.style.transform = "translateY(12px)";
+        void roleEl.offsetWidth; roleEl.style.transition = ""; roleEl.style.transform = ""; roleEl.classList.remove("out");
+      }, 450);
+    }, 2800);
+  }
+
   function fitName() {
     var stacked = window.innerWidth <= 700;
     nameEl.style.fontSize = "100px";
@@ -203,6 +221,27 @@
   /* ---------- scroll driven effects ---------- */
   var bar = $("#progressBar"), topbar = $("#topbar"), portrait = $("#heroPortrait");
   var ghosts = $$(".ghost"), dark = $(".dark-inner"), lastY = 0, ticking = false;
+  var heroWords = $$(".word", nameEl), mx = 0, my = 0, tx = 0, ty = 0, pointerLoop = false;
+  function heroMotion(y) {
+    portrait.style.transform = "translate(calc(-50% + " + (mx * 18).toFixed(1) + "px), " + (y * 0.14 + my * 10).toFixed(1) + "px)";
+    var split = Math.min(y * 0.35, window.innerWidth * 0.5);
+    heroWords.forEach(function (w, i) {
+      var dir = i === 0 ? -1 : 1;
+      w.style.transform = "translate(" + (dir * split - mx * 14).toFixed(1) + "px, " + (-my * 8).toFixed(1) + "px)";
+    });
+  }
+  function pointerStep() {
+    mx += (tx - mx) * 0.08; my += (ty - my) * 0.08;
+    heroMotion(window.scrollY);
+    if (Math.abs(tx - mx) > 0.002 || Math.abs(ty - my) > 0.002) requestAnimationFrame(pointerStep); else pointerLoop = false;
+  }
+  if (!reduce && window.matchMedia("(pointer: fine)").matches) {
+    $(".hero").addEventListener("mousemove", function (e) {
+      tx = e.clientX / window.innerWidth * 2 - 1; ty = e.clientY / window.innerHeight * 2 - 1;
+      if (!pointerLoop) { pointerLoop = true; requestAnimationFrame(pointerStep); }
+    });
+    $(".hero").addEventListener("mouseleave", function () { tx = 0; ty = 0; if (!pointerLoop) { pointerLoop = true; requestAnimationFrame(pointerStep); } });
+  }
   function onFrame() {
     ticking = false;
     var y = window.scrollY, vh = window.innerHeight;
@@ -212,7 +251,7 @@
     if (y < lastY - 2) topbar.classList.remove("is-hidden");
     lastY = y;
     if (reduce) return;
-    if (y < vh) portrait.style.transform = "translate(-50%, " + (y * 0.14) + "px)";
+    if (y < vh) heroMotion(y);
     ghosts.forEach(function (g) {
       var r = g.parentNode.getBoundingClientRect();
       if (r.bottom < -200 || r.top > vh + 200) return;

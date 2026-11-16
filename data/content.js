@@ -8,6 +8,8 @@ window.SITE = {
 
   name: { first: "Samiul", last: "Alam" },
   role: "Plant stress physiologist",
+  /* These rotate in the hero. Keep one item to switch the rotation off. */
+  roles: ["Plant stress physiologist", "Agronomist", "Rice researcher", "Photographer"],
   status: "Open to PhD positions",
   tagline: "I study how rice and other field crops cope with salinity, arsenic and other abiotic stresses, and how beneficial bacteria and biostimulants can help them.",
   portrait: "assets/img/portrait.webp",

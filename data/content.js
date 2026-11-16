@@ -7,7 +7,7 @@
 window.SITE = {
 
   name: { first: "Samiul", last: "Alam" },
-  role: "Agronomist and plant scientist",
+  role: "Agronomist and plant researcher",
   /* These rotate in the hero. Keep one item to switch the rotation off. */
   roles: ["Agronomist", "Plant stress physiologist", "Environmental researcher", "Climate data analyst"],
   status: "Open to PhD positions",

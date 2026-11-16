@@ -7,17 +7,17 @@
 window.SITE = {
 
   name: { first: "Samiul", last: "Alam" },
-  role: "Plant stress physiologist",
+  role: "Agronomist and plant scientist",
   /* These rotate in the hero. Keep one item to switch the rotation off. */
-  roles: ["Plant stress physiologist", "Agronomist", "Rice researcher", "Photographer"],
+  roles: ["Agronomist", "Plant stress physiologist", "Environmental researcher", "Climate data analyst"],
   status: "Open to PhD positions",
-  tagline: "I study how rice and other field crops cope with salinity, arsenic and other abiotic stresses, and how beneficial bacteria and biostimulants can help them.",
+  tagline: "I work across agronomy, plant physiology and environmental science. My research looks at how crops respond to salinity, drought, flooding and toxic metals, and how microbes, biostimulants and climate information can make farming more resilient.",
   portrait: "assets/img/portrait.webp",
   cv: "",   // e.g. "assets/cv/Samiul_Alam_CV.pdf". Leave empty to hide the button.
 
   about: [
-    "I completed my MSc in Agronomy at Sher-e-Bangla Agricultural University, Dhaka, under the supervision of Prof. Dr. Mirza Hasanuzzaman. My thesis examined the biostimulating roles of the plant growth-promoting rhizobacterium <i>Mangrovibacter</i> sp. in rice under salt stress.",
-    "My work combines field and laboratory experiments with assays of oxidative stress markers, antioxidant enzymes, the glyoxalase system and ion homeostasis. I also work with climate data, GIS and statistical analysis in R and Python."
+    "I am an agronomist with an MSc from Sher-e-Bangla Agricultural University, Dhaka, where I worked under Prof. Dr. Mirza Hasanuzzaman. My research sits where crop production meets environmental stress. I have studied salinity, drought, flooding and heat in field crops, and arsenic and chromium contamination in the soil-plant system.",
+    "My work combines field trials and laboratory physiology with microbiology, climate data analysis and GIS. I have worked on rice, <i>Brassica</i> and millet, and on plant growth-promoting bacteria and biostimulants as tools for sustainable, climate-smart agriculture."
   ],
 
   stats: [
@@ -33,11 +33,11 @@ window.SITE = {
   ],
 
   research: [
-    { title: "Salt stress", text: "Ion homeostasis, osmotic adjustment and oxidative damage in rice, <i>Brassica</i> and millet under salinity." },
-    { title: "Arsenic and metal toxicity", text: "Arsenic and chromium uptake in rice and ways to restrict it." },
-    { title: "PGPR and biostimulants", text: "Plant growth-promoting bacteria, seaweed extracts and other protectants as tools for stress tolerance." },
-    { title: "Antioxidant and glyoxalase systems", text: "Reactive oxygen species metabolism, antioxidant enzymes and methylglyoxal detoxification." },
-    { title: "Climate data analysis", text: "Bias correction, downscaling, ETCCDI indices and trend analysis, with GIS mapping." }
+    { title: "Crop stress physiology", text: "How field crops respond to salinity, drought, flooding and heat, from growth and yield to ion balance, oxidative stress and antioxidant and glyoxalase defense." },
+    { title: "Environmental contamination", text: "Arsenic, chromium and other metals in the soil-plant system, their uptake by crops and practical ways to reduce it for safer food." },
+    { title: "Plant-microbe interactions", text: "Isolation and use of plant growth-promoting bacteria, alongside seaweed extracts and other biostimulants, to support crops under stress." },
+    { title: "Sustainable and climate-smart agronomy", text: "Crop management practices that keep yields stable under a changing climate while reducing environmental costs." },
+    { title: "Climate data and GIS", text: "Bias correction, downscaling, ETCCDI climate indices, trend analysis and spatial mapping to link climate change with agriculture." }
   ],
 
   /* type must be one of: "article", "review", "chapter", "review-pending" */
@@ -154,7 +154,7 @@ window.SITE = {
 
   contact: {
     heading: "Looking for a PhD candidate?",
-    text: "I am looking for a PhD position in plant stress physiology and crop resilience. I would be glad to hear about openings, collaborations or questions about my work.",
+    text: "I am looking for a PhD position in agronomy, crop science, plant physiology or environmental science. I would be glad to hear about openings, collaborations or questions about my work.",
     email: "kbdsamiulalam@gmail.com",
     links: [
       { label: "LinkedIn", url: "https://www.linkedin.com/in/samiul-alam-738b37204/" },

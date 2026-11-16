@@ -57,6 +57,13 @@
     var size = 100 * nameEl.clientWidth / measured;
     var maxH = window.innerHeight * (stacked ? 0.17 : 0.34);
     nameEl.style.fontSize = Math.floor(Math.min(size, maxH)) + "px";
+    var port = $("#heroPortrait");
+    if (stacked) {
+      var nr = nameEl.getBoundingClientRect(), foot = $(".hero__foot").getBoundingClientRect();
+      var top = nr.top + window.scrollY + nr.height * 0.82;
+      var footTop = foot.top + window.scrollY;
+      port.style.height = Math.max(180, footTop - top) + "px";
+    } else { port.style.height = ""; }
   }
 
   /* ---------- about ---------- */

@@ -129,7 +129,7 @@
   pubs.forEach(function (p, i) {
     var b = el("button", "pub reveal",
       "<span class=\"pub__year\">" + p.year + "</span>" +
-      "<span class=\"pub__body\"><span class=\"pub__title\">" + p.title + "</span><span class=\"pub__venue\">" + p.venue + "</span></span>" +
+      "<span class=\"pub__body\"><span class=\"pub__title\">" + p.title + "</span><span class=\"pub__venue\">" + p.venue + (p.impact ? " <span class=\"if\">IF " + p.impact + "</span>" : "") + "</span></span>" +
       "<span class=\"pub__arrow\" aria-hidden=\"true\">↗</span>");
     b.type = "button"; b.dataset.type = p.type;
     b.addEventListener("click", function () { openDetail(i, b); });
@@ -146,6 +146,7 @@
     $("#detailAuthors").innerHTML = boldMe(p.authors);
     $("#detailVenue").textContent = p.venue;
     $("#detailYear").textContent = p.year;
+    $("#detailImpactRow").hidden = !p.impact; $("#detailImpact").textContent = p.impact ? p.impact + " (2025 JIF)" : "";
     var doi = $("#detailDoi");
     if (p.doi) { doi.hidden = false; doi.href = "https://doi.org/" + p.doi; } else { doi.hidden = true; doi.removeAttribute("href"); }
     detail.hidden = false; document.body.classList.add("is-locked");
@@ -173,15 +174,28 @@
     (items || []).forEach(function (a) {
       var when = a.year || a.date || "";
       var tag = a.type ? "<span class=\"tag\">" + a.type + "</span>" : "";
-      box.appendChild(el("div", "item reveal", "<strong>" + tag + a.title + "</strong><time>" + when + "</time>" + (a.by ? "<em>" + a.by + "</em>" : "")));
+      var badge = a.abbr ? "<span class=\"mono\" aria-hidden=\"true\">" + a.abbr + "</span>" : "";
+      var n = el("div", "item reveal" + (a.abbr ? " item--mono" : ""), badge + "<strong>" + tag + a.title + "</strong><time>" + when + "</time>" + (a.by ? "<em>" + a.by + "</em>" : ""));
+      box.appendChild(n);
     });
   }
   list("#awards", D.awards); list("#conferences", D.conferences);
   list("#trainingList", D.training); list("#memberships", D.memberships);
+  list("#leadershipList", D.leadership); list("#countries", D.countries);
+  if (!(D.leadership || []).length && !(D.countries || []).length) $("#leadership").hidden = true;
+  $("#impactNote").textContent = pubs.some(function (p) { return p.impact; }) ? (D.impactNote || "") : "";
   if (!(D.training || []).length && !(D.memberships || []).length) $("#training").hidden = true;
+  var svg = function (d) { return "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\">" + d + "</svg>"; };
+  var ICONS = {
+    flask: svg("<path d=\"M9 3h6\"/><path d=\"M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3\"/><path d=\"M7 15h10\"/>"),
+    gauge: svg("<path d=\"M4 16a8 8 0 1 1 16 0\"/><path d=\"M12 16l4-5\"/><circle cx=\"12\" cy=\"16\" r=\"1.2\"/><path d=\"M4 20h16\"/>"),
+    microbe: svg("<ellipse cx=\"12\" cy=\"12\" rx=\"7\" ry=\"4.5\" transform=\"rotate(-30 12 12)\"/><circle cx=\"10\" cy=\"12\" r=\"1\"/><circle cx=\"14\" cy=\"11\" r=\"1\"/><path d=\"M18 5l2-2M6 19l-2 2M17 17l2 2M7 7L5 5\"/>"),
+    chart: svg("<path d=\"M4 4v16h16\"/><path d=\"M7 15l4-4 3 3 5-6\"/>"),
+    camera: svg("<path d=\"M4 8h3l2-3h6l2 3h3v11H4z\"/><circle cx=\"12\" cy=\"13\" r=\"3.5\"/>")
+  };
   var sg = $("#skillGroups");
   (D.skills || []).forEach(function (s) {
-    sg.appendChild(el("div", "skill reveal", "<h3>" + s.group + "</h3><ul>" + s.items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + "</ul>"));
+    sg.appendChild(el("div", "skill reveal", "<h3>" + (ICONS[s.icon] ? "<span class=\"skill__icon\" aria-hidden=\"true\">" + ICONS[s.icon] + "</span>" : "") + s.group + "</h3><ul>" + s.items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + "</ul>"));
   });
   if (D.gallery && D.gallery.length) {
     $("#gallery").hidden = false;
@@ -191,6 +205,7 @@
   /* ---------- contact ---------- */
   var c = D.contact || {};
   if (c.email) { $("#emailButton").href = "mailto:" + c.email; $("#emailText").textContent = c.email; }
+  if (c.phone) { var ph = el("a", "", c.phone); ph.href = "tel:" + c.phone.replace(/\s/g, ""); $("#phoneText").appendChild(document.createTextNode(" · ")); $("#phoneText").appendChild(ph); }
   (c.links || []).forEach(function (l) {
     var a = el("a", "pill", l.label + " <span class=\"arrow\" aria-hidden=\"true\">↗</span>");
     a.href = l.url; a.target = "_blank"; a.rel = "noopener"; $("#contactLinks").appendChild(a);

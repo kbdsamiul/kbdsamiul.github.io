@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body class="is-loading">
 
@@ -72,6 +72,7 @@
       <div class="heading"><span class="ghost" aria-hidden="true">Publications</span><h2>/Publications</h2></div>
       <div class="filters" id="filters" role="tablist" aria-label="Publication type"></div>
       <div class="pubs" id="pubRows"></div>
+      <p class="note" id="impactNote"></p>
     </section>
 
     <!-- EXPERIENCE (dark panel) -->
@@ -106,6 +107,15 @@
       </div>
     </section>
 
+    <!-- LEADERSHIP AND COUNTRIES -->
+    <section class="section" id="leadership">
+      <div class="heading"><span class="ghost" aria-hidden="true">Leadership</span><h2>/Leadership</h2></div>
+      <div class="two">
+        <div><h3 class="sub">Leadership and activities</h3><div class="list" id="leadershipList"></div></div>
+        <div><h3 class="sub">Countries visited</h3><div class="list" id="countries"></div></div>
+      </div>
+    </section>
+
     <!-- GALLERY (hidden until photos are added in data/content.js) -->
     <section class="section" id="gallery" hidden>
       <div class="heading"><span class="ghost" aria-hidden="true">Beyond the lab</span><h2>/Beyond the lab</h2></div>
@@ -120,7 +130,7 @@
   <h2 class="contact__title" data-bind="contact.heading"></h2>
   <p class="contact__text" data-bind="contact.text"></p>
   <a class="pill pill--dark pill--lg" id="emailButton">Email me <span class="arrow" aria-hidden="true">↗</span></a>
-  <p class="contact__email" id="emailText"></p>
+  <p class="contact__email"><span id="emailText"></span><span id="phoneText"></span></p>
   <div class="contact__links" id="contactLinks"></div>
   <p class="contact__copy">© <span id="year"></span> Samiul Alam</p>
 </footer>
@@ -135,12 +145,13 @@
       <div><dt>Authors</dt><dd id="detailAuthors"></dd></div>
       <div><dt>Published in</dt><dd id="detailVenue"></dd></div>
       <div><dt>Year</dt><dd id="detailYear"></dd></div>
+      <div id="detailImpactRow"><dt>Impact factor</dt><dd id="detailImpact"></dd></div>
     </dl>
     <a class="pill pill--dark pill--lg" id="detailDoi" target="_blank" rel="noopener">Read the paper <span class="arrow" aria-hidden="true">↗</span></a>
   </div>
 </div>
 
-<script src="data/content.js?v=6"></script>
-<script src="js/main.js?v=6"></script>
+<script src="data/content.js?v=7"></script>
+<script src="js/main.js?v=7"></script>
 </body>
 </html>

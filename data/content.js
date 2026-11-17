@@ -43,20 +43,22 @@ window.SITE = {
     { title: "Climate data and GIS", text: "Bias correction, downscaling, ETCCDI climate indices, trend analysis and spatial mapping to link climate change with agriculture." }
   ],
 
-  /* type must be one of: "article", "review", "chapter", "review-pending" */
+  /* type must be one of: "article", "review", "chapter", "review-pending".
+     impact is the 2025 Journal Impact Factor (Clarivate JCR, released 2026). Leave it out if unknown. */
+  impactNote: "Impact factors are 2025 Journal Impact Factors (Clarivate Journal Citation Reports, released 2026).",
   publications: [
     { type: "article", year: 2026,
       authors: "Hasanuzzaman, M., Alam, S., Hosen, M. S., Rummana, S., and Alam, M. M.",
       title: "Silymarin orchestrates reactive oxygen species metabolism, ion homeostasis and morpho-physiological traits to confer salt tolerance in <i>Brassica napus</i>",
-      venue: "Scientific Reports", doi: "10.1038/s41598-026-51150-5" },
+      venue: "Scientific Reports", impact: "4.9", doi: "10.1038/s41598-026-51150-5" },
     { type: "article", year: 2026,
       authors: "Hasanuzzaman, M., Sultana, A., Sinthi, F., Alam, S., Alam, M. M., and Prasad, P. V. V.",
       title: "Selenium and seaweed extracts exhibit synergistic actions in regulating antioxidant defense in rice under salt stress",
-      venue: "Chemical and Biological Technologies in Agriculture", doi: "10.1186/s40538-026-00956-6" },
+      venue: "Chemical and Biological Technologies in Agriculture", impact: "5.8", doi: "10.1186/s40538-026-00956-6" },
     { type: "article", year: 2026,
       authors: "Hasanuzzaman, M., Alam, S., Sultana, A., Sabiha, U. K., Alam, M. M., and Prasad, P. V. V.",
       title: "Foliar application of allantoin reinforces antioxidant and glyoxalase systems to confer tolerance against arsenic toxicity in rice (<i>Oryza sativa</i> L.)",
-      venue: "BMC Plant Biology", doi: "10.1186/s12870-026-08192-8" },
+      venue: "BMC Plant Biology", impact: "5.6", doi: "10.1186/s12870-026-08192-8" },
     { type: "article", year: 2025,
       authors: "Hasanuzzaman, M., Rummana, S., Sinthi, F., Alam, S., Raihan, M. R. H., and Alam, M. M.",
       title: "Enhancing drought resilience in <i>Brassica campestris</i>: Antioxidant and physiological benefits of <i>Ascophyllum nodosum</i> extract and alginic acid",
@@ -64,7 +66,7 @@ window.SITE = {
     { type: "article", year: 2025,
       authors: "Sobahan, M. A., Akter, N., Karim, M. M., Badhon, M. M. I., Khan, S. N., Alam, S., Prasad, P. V. V., and Hasanuzzaman, M.",
       title: "Bioaugmentation with plant growth-promoting rhizobacteria alleviates chromium and salt stress in rice through the improvement of physiology, ion homeostasis, and antioxidant defense",
-      venue: "Microorganisms", doi: "10.3390/microorganisms13071462" },
+      venue: "Microorganisms", impact: "4.7", doi: "10.3390/microorganisms13071462" },
 
     { type: "review", year: 2026,
       authors: "Datta, D., Alam, S., Sinthi, F., Nahar, K., and Hasanuzzaman, M.",
@@ -142,15 +144,15 @@ window.SITE = {
   ],
 
   skills: [
-    { group: "Plant physiology and biochemistry",
+    { group: "Plant physiology and biochemistry", icon: "flask",
       items: ["MDA, H₂O₂, proline, methylglyoxal", "Relative water content, electrolyte leakage, chlorophyll", "SOD, CAT, APX, GR, MDHAR, DHAR, GPX, GST, POD", "Gly I and Gly II", "Na⁺, K⁺ and Ca²⁺ analysis"] },
-    { group: "Instrumentation",
+    { group: "Instrumentation", icon: "gauge",
       items: ["Spectrophotometer", "Fluorometer", "SPAD meter", "Leaf porometer", "EC meter", "Centrifuges", "Growth chambers", "Incubators", "Laminar airflow cabinet", "Autoclave"] },
-    { group: "Microbiology",
+    { group: "Microbiology", icon: "microbe",
       items: ["Isolation of endophytic and epiphytic bacteria", "Identification and preservation of plant growth-promoting bacteria"] },
-    { group: "Data analysis and climate data",
+    { group: "Data analysis and climate data", icon: "chart",
       items: ["R / RStudio, SPSS, Python", "ArcGIS, QGIS", "Imputation and interpolation", "Bias correction and downscaling", "ETCCDI indices and trend analysis"] },
-    { group: "Visual media",
+    { group: "Visual media", icon: "camera",
       items: ["Photography and cinematography", "Adobe Photoshop, Illustrator", "Premiere Pro, After Effects"] }
   ],
 
@@ -164,10 +166,27 @@ window.SITE = {
   ],
 
   memberships: [
-    { title: "Life Member, Bangladesh Society of Agronomy", by: "", year: "2026 - present" },
-    { title: "South Asian Meteorological Association (SAMA)", by: "", year: "2025 - present" },
-    { title: "British Ecological Society", by: "", year: "2024 - present" },
-    { title: "Asian Phytopathological Society", by: "", year: "2023 - present" }
+    { title: "Life Member, Bangladesh Society of Agronomy", abbr: "BSA", by: "", year: "2026 - present" },
+    { title: "South Asian Meteorological Association (SAMA)", abbr: "SAMA", by: "", year: "2025 - present" },
+    { title: "British Ecological Society", abbr: "BES", by: "", year: "2024 - present" },
+    { title: "Asian Phytopathological Society", abbr: "APS", by: "", year: "2023 - present" }
+  ],
+
+  leadership: [
+    { title: "Vice-President", by: "Rotaract Club of Dhaka Mid City Green", year: "2023 - 2024" },
+    { title: "Member", by: "IAAS-SAU", year: "2022 - 2023" },
+    { title: "General Secretary", by: "SAU Photographic Society", year: "2020 - 2022" },
+    { title: "Technical Executive", by: "Scenate Media", year: "2020 - 2022" },
+    { title: "Head of Creative Affairs", by: "SAU Entrepreneurship Development Club", year: "2019 - 2021" },
+    { title: "Instructor, RESOLUTION Photography Workshop", by: "SAU Photographic Society", year: "2024" },
+    { title: "Chief Instructor, Advanced Graphics Design Course (Adobe Illustrator)", by: "", year: "2021" }
+  ],
+
+  countries: [
+    { title: "Germany", by: "Bayer Safe Use Ambassador program, funded by Bayer Crop Science", year: "2023" },
+    { title: "Netherlands", by: "Bayer Safe Use Ambassador program, funded by Bayer Crop Science", year: "2023" },
+    { title: "India", by: "International conferences", year: "2024 - 2025" },
+    { title: "Nepal", by: "Fall School on climate data analytics, funded by APN, Japan", year: "2025" }
   ],
 
   /* Add photos like { src: "assets/img/photo1.jpg", alt: "Rice field at sunrise" }.
@@ -178,6 +197,7 @@ window.SITE = {
     heading: "Looking for a PhD candidate?",
     text: "I am looking for a PhD position in agronomy, crop science, plant physiology or environmental science. I would be glad to hear about openings, collaborations or questions about my work.",
     email: "kbdsamiulalam@gmail.com",
+    phone: "+880 1521 493469",
     links: [
       { label: "LinkedIn", url: "https://www.linkedin.com/in/samiul-alam-738b37204/" },
       { label: "ResearchGate", url: "https://www.researchgate.net/profile/Samiul-Alam-6" },

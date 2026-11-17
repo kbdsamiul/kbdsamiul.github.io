@@ -31,6 +31,13 @@
   nameEl.appendChild(word(D.name.last, "solid", D.name.first.length));
   $("#portraitImg").src = D.portrait;
 
+  var ABBR = { "LinkedIn": "in", "ResearchGate": "RG", "Google Scholar": "Sc", "ORCID": "iD" };
+  var hs = $("#heroSocial");
+  ((D.contact || {}).links || []).forEach(function (l) {
+    var a = el("a", "social", ABBR[l.label] || l.label.charAt(0));
+    a.href = l.url; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("aria-label", l.label); a.title = l.label;
+    hs.appendChild(a);
+  });
   var mq = $("#heroMarquee");
   if (mq && (D.research || []).length) {
     var words = D.research.map(function (r) { return "<span>" + r.title + "</span>"; }).join("");
@@ -71,13 +78,15 @@
   (D.about || []).forEach(function (p) { aboutText.appendChild(el("p", "reveal", p)); });
   var edu = $("#education");
   (D.education || []).forEach(function (e) {
-    edu.appendChild(el("div", "edu__item reveal", "<strong>" + e.degree + "</strong><span>" + e.place + "</span><span>" + e.period + (e.note ? " · " + e.note : "") + "</span>"));
+    edu.appendChild(el("div", "edu__item reveal", "<strong>" + e.degree + "</strong><span>" + e.place + "</span><span>" + e.period + (e.note ? " · " + e.note : "") + "</span>" +
+      (e.thesis ? "<span class=\"edu__thesis\"><em>Thesis</em> " + e.thesis + "</span>" : "") +
+      (e.supervisor ? "<span class=\"edu__thesis\"><em>Supervisor</em> " + e.supervisor + "</span>" : "")));
   });
   var cvBtn = $("#cvButton");
   if (D.cv) { cvBtn.hidden = false; cvBtn.href = D.cv; cvBtn.target = "_blank"; cvBtn.rel = "noopener"; }
   var stats = $("#stats");
   (D.stats || []).forEach(function (s) {
-    var n = el("div", "stat reveal", "<b data-to=\"" + s.value + "\">" + (reduce ? s.value : 0) + "</b><span>" + s.label + "</span>");
+    var n = el("div", "stat reveal", "<b data-to=\"" + s.value + "\" data-dec=\"" + (s.decimals || 0) + "\">" + (reduce ? s.value.toFixed(s.decimals || 0) : (0).toFixed(s.decimals || 0)) + "</b><span>" + s.label + "</span>");
     stats.appendChild(n);
   });
 
@@ -162,10 +171,14 @@
   function list(id, items) {
     var box = $(id);
     (items || []).forEach(function (a) {
-      box.appendChild(el("div", "item reveal", "<strong>" + a.title + "</strong><time>" + a.year + "</time>" + (a.by ? "<em>" + a.by + "</em>" : "")));
+      var when = a.year || a.date || "";
+      var tag = a.type ? "<span class=\"tag\">" + a.type + "</span>" : "";
+      box.appendChild(el("div", "item reveal", "<strong>" + tag + a.title + "</strong><time>" + when + "</time>" + (a.by ? "<em>" + a.by + "</em>" : "")));
     });
   }
   list("#awards", D.awards); list("#conferences", D.conferences);
+  list("#trainingList", D.training); list("#memberships", D.memberships);
+  if (!(D.training || []).length && !(D.memberships || []).length) $("#training").hidden = true;
   var sg = $("#skillGroups");
   (D.skills || []).forEach(function (s) {
     sg.appendChild(el("div", "skill reveal", "<h3>" + s.group + "</h3><ul>" + s.items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + "</ul>"));
@@ -190,8 +203,8 @@
 
   /* ---------- reveal on scroll ---------- */
   function countUp(b) {
-    var to = +b.dataset.to, t0 = null, dur = 1200;
-    function step(t) { if (!t0) t0 = t; var k = clamp((t - t0) / dur, 0, 1); b.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }
+    var to = +b.dataset.to, dec = +(b.dataset.dec || 0), t0 = null, dur = 1200;
+    function step(t) { if (!t0) t0 = t; var k = clamp((t - t0) / dur, 0, 1); b.textContent = (to * (1 - Math.pow(1 - k, 3))).toFixed(dec); if (k < 1) requestAnimationFrame(step); }
     requestAnimationFrame(step);
   }
   var targets = $$(".reveal, .heading");

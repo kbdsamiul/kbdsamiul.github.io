@@ -24,11 +24,14 @@ window.SITE = {
     { value: 5, label: "Research articles" },
     { value: 1, label: "Review article" },
     { value: 8, label: "Book chapters" },
-    { value: 5, label: "International conference presentations" }
+    { value: 5, label: "International conference presentations" },
+    { value: 3.82, decimals: 2, label: "MSc CGPA out of 4.00" }
   ],
 
   education: [
-    { degree: "MSc in Agronomy", place: "Sher-e-Bangla Agricultural University, Dhaka", period: "Jul 2023 - Dec 2025", note: "CGPA 3.82 / 4.00" },
+    { degree: "MSc in Agronomy", place: "Sher-e-Bangla Agricultural University, Dhaka", period: "Jul 2023 - Dec 2025", note: "CGPA 3.82 / 4.00",
+      thesis: "Biostimulating roles of plant growth-promoting rhizobacteria (<i>Mangrovibacter</i> sp.) in rice under salt stress",
+      supervisor: "Prof. Dr. Mirza Hasanuzzaman" },
     { degree: "BSc in Agriculture", place: "Sher-e-Bangla Agricultural University, Dhaka", period: "Jan 2017 - Jun 2023", note: "CGPA 3.56 / 4.00" }
   ],
 
@@ -129,23 +132,42 @@ window.SITE = {
     { title: "National Champion, Shutterhunt Photography Exhibition", by: "", year: "2019" }
   ],
 
+  /* type is "Oral" or "Poster" */
   conferences: [
-    { title: "7th International Conference on Plants and Environmental Pollution (ICPEP-7)", by: "CSIR Campus, India. Poster", year: "2025" },
-    { title: "World Congress on Climate Change and Its Effects (CCIE-2025)", by: "Pokhara University, Nepal. Oral", year: "2025" },
-    { title: "23rd Science Council of Asia Conference", by: "Dhaka, Bangladesh. Poster", year: "2024" },
-    { title: "7th International Conference on Advances in Agriculture Technology and Allied Science (ICAATAS-2024)", by: "The Neotia University, India. Oral", year: "2024" },
-    { title: "6th International Conference on Cutting-Edge Solutions in Science, Agriculture, Technology, Engineering and Humanities (CSATEH-2024)", by: "Kumaun University, India. Oral", year: "2024" }
+    { title: "7th International Conference on Plants and Environmental Pollution (ICPEP-7)", by: "CSIR Campus, India", date: "30 Nov - 2 Dec 2025", type: "Poster" },
+    { title: "World Congress on Climate Change and Its Effects (CCIE-2025)", by: "Pokhara University, Nepal", date: "6 - 8 Sep 2025", type: "Oral" },
+    { title: "23rd Science Council of Asia Conference: Fourth Industrial Revolution and Future Society", by: "Dhaka, Bangladesh", date: "30 Nov - 2 Dec 2024", type: "Poster" },
+    { title: "7th International Conference on Advances in Agriculture Technology and Allied Science (ICAATAS-2024)", by: "The Neotia University, West Bengal, India", date: "15 - 16 Sep 2024", type: "Oral" },
+    { title: "6th International Conference on Cutting-Edge Solutions in Science, Agriculture, Technology, Engineering and Humanities (CSATEH-2024)", by: "Kumaun University, India", date: "24 - 26 Aug 2024", type: "Oral" }
   ],
 
   skills: [
     { group: "Plant physiology and biochemistry",
       items: ["MDA, H₂O₂, proline, methylglyoxal", "Relative water content, electrolyte leakage, chlorophyll", "SOD, CAT, APX, GR, MDHAR, DHAR, GPX, GST, POD", "Gly I and Gly II", "Na⁺, K⁺ and Ca²⁺ analysis"] },
+    { group: "Instrumentation",
+      items: ["Spectrophotometer", "Fluorometer", "SPAD meter", "Leaf porometer", "EC meter", "Centrifuges", "Growth chambers", "Incubators", "Laminar airflow cabinet", "Autoclave"] },
     { group: "Microbiology",
       items: ["Isolation of endophytic and epiphytic bacteria", "Identification and preservation of plant growth-promoting bacteria"] },
     { group: "Data analysis and climate data",
-      items: ["R / RStudio, SPSS, Python", "ArcGIS, QGIS", "Bias correction and downscaling", "ETCCDI indices and trend analysis"] },
+      items: ["R / RStudio, SPSS, Python", "ArcGIS, QGIS", "Imputation and interpolation", "Bias correction and downscaling", "ETCCDI indices and trend analysis"] },
     { group: "Visual media",
       items: ["Photography and cinematography", "Adobe Photoshop, Illustrator", "Premiere Pro, After Effects"] }
+  ],
+
+  training: [
+    { title: "Fall School on Advanced Climate Data Analytics and Strategies", by: "The Small Earth Nepal, Bhaktapur, Nepal. Funded by APN, Japan", year: "Oct 2025" },
+    { title: "Experimental Data Analysis Using R Software", by: "Sher-e-Bangla Agricultural University, Dhaka", year: "May 2025" },
+    { title: "GIS Training Course", by: "SAU Computer Club, Dhaka", year: "Nov 2024" },
+    { title: "Communicating the Science of Climate Change and Food Security", by: "Farming Future Bangladesh", year: "Jun 2023" },
+    { title: "Crop Pest Management and Crop Pest Diagnosis (online)", by: "CABI Academy", year: "Aug 2021" },
+    { title: "Agri-Science Leadership Development", by: "Farming Future Bangladesh and Cornell University", year: "Nov - Dec 2020" }
+  ],
+
+  memberships: [
+    { title: "Life Member, Bangladesh Society of Agronomy", by: "", year: "2026 - present" },
+    { title: "South Asian Meteorological Association (SAMA)", by: "", year: "2025 - present" },
+    { title: "British Ecological Society", by: "", year: "2024 - present" },
+    { title: "Asian Phytopathological Society", by: "", year: "2023 - present" }
   ],
 
   /* Add photos like { src: "assets/img/photo1.jpg", alt: "Rice field at sunrise" }.

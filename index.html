@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body class="is-loading">
 
@@ -39,7 +39,10 @@
       <div class="hero__marquee" id="heroMarquee" aria-hidden="true"></div>
       <div class="hero__portrait" id="heroPortrait"><img id="portraitImg" alt="Portrait of Samiul Alam" width="900" height="1352"></div>
       <div class="hero__foot">
+        <div class="hero__left">
+        <div class="hero__social" id="heroSocial"></div>
         <p class="hero__role"><span id="roleText" data-bind="role"></span></p>
+        </div>
         <p class="hero__tag" data-bind="tagline"></p>
       </div>
       <a class="hero__cue" href="#about" aria-label="Scroll to about"><span></span></a>
@@ -94,6 +97,15 @@
       <div class="skills" id="skillGroups"></div>
     </section>
 
+    <!-- TRAINING AND MEMBERSHIPS -->
+    <section class="section" id="training">
+      <div class="heading"><span class="ghost" aria-hidden="true">Training</span><h2>/Training</h2></div>
+      <div class="two">
+        <div><h3 class="sub">Workshops and training</h3><div class="list" id="trainingList"></div></div>
+        <div><h3 class="sub">Professional memberships</h3><div class="list" id="memberships"></div></div>
+      </div>
+    </section>
+
     <!-- GALLERY (hidden until photos are added in data/content.js) -->
     <section class="section" id="gallery" hidden>
       <div class="heading"><span class="ghost" aria-hidden="true">Beyond the lab</span><h2>/Beyond the lab</h2></div>
@@ -128,7 +140,7 @@
   </div>
 </div>
 
-<script src="data/content.js?v=5"></script>
-<script src="js/main.js?v=5"></script>
+<script src="data/content.js?v=6"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>

@@ -101,6 +101,63 @@ h1, h2, h3, p { margin: 0; }
 .hm b { display: block; height: 100%; border-radius: 3px; transform-origin: left center; transition: transform 1.1s var(--ease); }
 .hm b.warn { background: #e0615a; } .hm b.good { background: var(--accent); }
 
+/* ---------- biological drawing vocabulary ---------- */
+.intro__note { margin-top: 12px; max-width: 46em; color: #6f7874; font-size: 13px; font-family: var(--mono); line-height: 1.55; }
+.lbl.tiny, .tiny { font-size: 8.5px; }
+.tpname { font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .04em; fill: #e6e2d8; }
+.wall { fill: rgba(214, 206, 180, .05); stroke: rgba(214, 206, 180, .42); stroke-width: 5; }
+.pm { stroke: rgba(237, 234, 227, .4); stroke-width: 1; }
+.pm2 { fill: none; stroke: rgba(237, 234, 227, .22); stroke-width: .8; }
+.vac { stroke: rgba(106, 174, 232, .55); stroke-width: 1.2; }
+.nuc { fill: rgba(179, 140, 240, .1); stroke: rgba(179, 140, 240, .55); stroke-width: 1.4; }
+.nucleolus { fill: rgba(179, 140, 240, .35); }
+.pore { fill: #121615; stroke: rgba(179, 140, 240, .6); stroke-width: .6; }
+.chromatin { fill: none; stroke: rgba(179, 140, 240, .45); stroke-width: 1; }
+.mito { fill: rgba(229, 140, 90, .12); stroke: rgba(229, 160, 100, .7); stroke-width: 1.2; }
+.mito-in { fill: none; stroke: rgba(229, 160, 100, .3); stroke-width: .7; }
+.cristae { fill: none; stroke: rgba(229, 160, 100, .6); stroke-width: 1; stroke-linejoin: round; }
+.chl { stroke: rgba(126, 214, 160, .75); stroke-width: 1.3; }
+.chl-in { fill: none; stroke: rgba(126, 214, 160, .3); stroke-width: .6; }
+.grana { fill: rgba(70, 190, 110, .7); }
+.lamella { stroke: rgba(126, 214, 160, .45); stroke-width: .8; }
+.plasto { fill: rgba(237, 234, 227, .35); }
+.perox { fill: rgba(229, 180, 90, .1); stroke: rgba(229, 180, 90, .6); stroke-width: 1; }
+.perox-core { fill: rgba(229, 180, 90, .45); }
+.er { fill: none; stroke: rgba(237, 234, 227, .2); stroke-width: 1; }
+.tp rect { fill: #2b3431; stroke: rgba(237, 234, 227, .55); stroke-width: 1; transition: stroke .6s, fill .6s; }
+.tp.glow rect { stroke: var(--accent); fill: rgba(63, 191, 107, .25); }
+.hair { fill: none; stroke: rgba(214, 206, 180, .4); stroke-width: 9; stroke-linecap: round; }
+.hair-in { fill: none; stroke: #14120e; stroke-width: 5; stroke-linecap: round; }
+.bact { fill: rgba(63, 191, 107, .85); }
+.bact-in { fill: rgba(14, 17, 16, .5); }
+.flag { fill: none; stroke: rgba(63, 191, 107, .7); stroke-width: .8; }
+.drop { fill: rgba(63, 191, 107, .85); }
+.cuticle { stroke: rgba(229, 180, 90, .55); stroke-width: 3; stroke-linecap: round; }
+.epi { fill: rgba(237, 234, 227, .035); stroke: rgba(237, 234, 227, .25); stroke-width: 1; }
+.guard { fill: rgba(63, 191, 107, .25); stroke: rgba(126, 214, 160, .8); stroke-width: 1.2; }
+.ring { fill: rgba(255, 255, 255, .02); stroke: rgba(126, 214, 160, .45); stroke-width: 1.4; stroke-dasharray: 5 4; transform-box: fill-box; transform-origin: center; animation: spin 14s linear infinite; transition: stroke .6s, fill .6s; }
+.ring.glow { stroke: var(--accent); fill: rgba(63, 191, 107, .12); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.membrane-hot { stroke: #e0615a; stroke-width: 2; stroke-dasharray: 3 3; }
+.tiller { fill: none; stroke: rgba(126, 214, 160, .55); stroke-width: 2.4; stroke-linecap: round; }
+.blade { fill: none; stroke: rgba(63, 191, 107, .55); stroke-width: 5; stroke-linecap: round; }
+.blade-mid { fill: none; stroke: rgba(14, 17, 16, .5); stroke-width: .8; }
+.rachis { fill: none; stroke: rgba(229, 180, 90, .6); stroke-width: 1.4; }
+.rootline { fill: none; stroke: rgba(214, 206, 180, .45); stroke-width: 1.3; stroke-linecap: round; }
+.lens { fill: none; stroke: rgba(237, 234, 227, .4); stroke-width: 1; }
+.divider { stroke: rgba(255, 255, 255, .07); }
+.axis { stroke: rgba(237, 234, 227, .35); stroke-width: 1; }
+.grid { stroke: rgba(255, 255, 255, .05); }
+.series-fill { fill: none; stroke: #e5b45a; stroke-width: 1.6; }
+.series-model { fill: none; stroke: rgba(237, 234, 227, .3); stroke-width: 1.3; }
+.gapband { fill: rgba(224, 97, 90, .08); }
+.outlier { fill: none; stroke: #e0615a; stroke-width: 1.6; }
+.bar { fill: rgba(229, 140, 70, .7); }
+.dot { fill: rgba(237, 234, 227, .8); }
+.trendline { stroke: #e5b45a; stroke-width: 2; }
+.arrow { fill: none; stroke: rgba(237, 234, 227, .55); stroke-width: 1.4; }
+.particle { filter: drop-shadow(0 0 3px currentColor); }
+
 /* ---------- outro ---------- */
 .outro { max-width: 1100px; margin: 0 auto; padding: clamp(80px, 11vw, 140px) var(--pad) 48px; text-align: center; }
 .outro > p:first-child { font-size: clamp(22px, 3vw, 34px); font-weight: 700; letter-spacing: -.015em; }
@@ -115,6 +172,7 @@ h1, h2, h3, p { margin: 0; }
   .lbl-hi { font-size: 10.5px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .ring { animation: none; }
   .proj { opacity: 1; transform: none; transition: none; }
   .caption::after { animation: none; }
   .tog, .mfill, .enz, .stage, .series2 { transition: none; }
